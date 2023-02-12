@@ -7,11 +7,12 @@ import {
 
 import styles from "../styles/TaskItem.module.css";
 
-export default function TaskItem({ task, deleteTask }) {
+export default function TaskItem({ task, deleteTask, toggleTask }) {
   const [isChecked, setIsChecked] = useState(task.checked);
 
   const handleCheckboxChange = (e) => {
     setIsChecked(!isChecked);
+    toggleTask(task.id);
   };
 
   return (

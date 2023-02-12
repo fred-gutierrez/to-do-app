@@ -1,7 +1,12 @@
 import TaskItem from "./TaskItem";
 import styles from "../styles/TaskList.module.css";
 
-export default function TaskList({ tasks, deleteTask, toggleTask }) {
+export default function TaskList({
+  tasks,
+  deleteTask,
+  toggleTask,
+  enterEditMode,
+}) {
   return (
     <ul className={styles.tasks}>
       {tasks
@@ -12,6 +17,7 @@ export default function TaskList({ tasks, deleteTask, toggleTask }) {
             task={task}
             deleteTask={deleteTask}
             toggleTask={toggleTask}
+            enterEditMode={enterEditMode}
           />
         ))}
     </ul>

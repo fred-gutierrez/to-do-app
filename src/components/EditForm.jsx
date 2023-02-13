@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
-export default function EditForm({ editedTask, updateTask }) {
+export default function EditForm({ editedTask, updateTask, closeEditMode }) {
   const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
+
+  useEffect(() => {
+    const closeModalIfEscaped = (e) => {
+      e.key === "Escape" && closeEditMode();
+    };
+
+    window.addEventListener("keydown", closeModalIfEscaped);
+
+    return () => {
+      window.removeEventListener("keydown", closeModalIfEscaped);
+    };
+  }, [closeEditMode]);
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -14,7 +26,9 @@ export default function EditForm({ editedTask, updateTask }) {
     <div
       role="dialog"
       aria-labelledby="editTask"
-      // onClick={}
+      onClick={(e) => {
+        e.target === e.currentTarget && closeEditMode();
+      }}
     >
       <form className="todo" onSubmit={handleFormSubmit}>
         <div className="wrapper">

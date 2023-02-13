@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { PlusIcon } from "@heroicons/react/24/solid";
 import { CheckIcon } from "@heroicons/react/24/outline";
 
 export default function EditForm({ editedTask, updateTask, closeEditMode }) {

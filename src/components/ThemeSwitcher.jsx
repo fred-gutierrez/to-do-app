@@ -8,9 +8,16 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 
+import useLocalStorage from "../hooks/useLocalStorage";
+
 export default function ThemeSwitcher() {
-  const [hue, setHue] = useState("180");
-  const [theme, setTheme] = useState("light");
+  const [hue, setHue] = useLocalStorage("react-todo.color", "90");
+
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "react-todo.theme",
+    defaultDark ? "dark" : "light"
+  );
   const [isColorPicking, setIsColorPicking] = useState(false);
 
   useEffect(() => {

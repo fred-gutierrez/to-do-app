@@ -1,4 +1,4 @@
-# To-Do App with Theme Switcher and LocalStorage Support
+# Fred's To-Do App
 Welcome to my To-Do App! This project is designed to help you keep track of your tasks in style. With a user-friendly UI, theme/color switcher, dark and light mode, localStorage functionality, and easy note editing and deletion. This app was built using React, Sass, and CSS modules to provide a seamless user experience.
 
 ## Features
